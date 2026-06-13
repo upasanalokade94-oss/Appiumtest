@@ -52,7 +52,7 @@ public void test_Login() throws InterruptedException
 	 Thread.sleep(3000);
 	boolean status= driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Header Avatar\")")).isDisplayed();
 	Assert.assertTrue(status, "Login failed: Header Avatar not displayed");
-
+     Thread.sleep(3000);
 }
 
 @AfterTest
