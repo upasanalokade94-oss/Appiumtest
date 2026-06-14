@@ -52,11 +52,24 @@ public class SimpleappiumbrowserProgram {
 		WebElement Invalid_text= driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Invalid email ID or password.\")"));
 		if(Invalid_text.isDisplayed())
 		{
-	
 		System.out.println("Test is passed");
 		}
 		
-		driver.close();
+		WebElement Forgot_password= driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Forgot Password?\")"));
+		if (Forgot_password.isDisplayed())
+		{
+			Forgot_password.click();
+			Thread.sleep(3000);
+			WebElement Forgotpassword_text= driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Forgot Password?\")"));
+			if(Forgotpassword_text.isDisplayed())
+			{
+				System.out.println("Navigated to forgot password");
+			}
+		}
+		
+		
+		
+		driver.quit();
 	}
 
 }
