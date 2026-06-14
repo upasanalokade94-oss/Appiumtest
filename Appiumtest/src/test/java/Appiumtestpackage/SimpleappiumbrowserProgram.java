@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
@@ -36,7 +37,7 @@ public class SimpleappiumbrowserProgram {
 		
 		driver.get("https://test.hinstdev.com/");
 		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		
 		WebElement EmailID=driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(0)"));
 		EmailID.sendKeys("upasanalokade@gmail.com");
@@ -46,9 +47,16 @@ public class SimpleappiumbrowserProgram {
 
 		WebElement loginButton = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Sign In\")"));
 		loginButton.click();
-
+		Thread.sleep(3000);
 		
-		driver.quit();
+		WebElement Invalid_text= driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Invalid email ID or password.\")"));
+		if(Invalid_text.isDisplayed())
+		{
+	
+		System.out.println("Test is passed");
+		}
+		
+		driver.close();
 	}
 
 }
