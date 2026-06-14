@@ -12,6 +12,8 @@ import org.testng.Assert;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.android.options.UiAutomator2Options;
 
 public class SimpleappiumbrowserProgram {
@@ -66,7 +68,14 @@ public class SimpleappiumbrowserProgram {
 				System.out.println("Navigated to forgot password");
 			}
 		}
+		driver.pressKey(new KeyEvent(AndroidKey.BACK));
+		System.out.println("Navigate back to the login page");
 		
+		Thread.sleep(5000);
+		driver.pressKey(new KeyEvent (AndroidKey.HOME));
+		System.out.println("Navigated to home page");
+		
+		Thread.sleep(5000);
 		
 		
 		driver.quit();
